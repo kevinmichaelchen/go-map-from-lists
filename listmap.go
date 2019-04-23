@@ -9,6 +9,16 @@ type MyMap struct {
 	keys, vals []string
 }
 
+func (m *MyMap) ToMap() map[string]string {
+	out := make(map[string]string)
+	for i := range m.keys {
+		k := m.keys[i]
+		v := m.vals[i]
+		out[k] = v
+	}
+	return out
+}
+
 func (m *MyMap) IsEmpty() bool {
 	return len(m.keys) == 0
 }

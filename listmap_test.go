@@ -26,6 +26,25 @@ func Test_MyMap_Contains(t *testing.T) {
 	})
 }
 
+func Test_MyMap_ToMap(t *testing.T) {
+	Convey("Given a MyMap", t, func(c C) {
+
+		var m *MyMap
+
+		m = &MyMap{
+			keys: []string{"a", "b", "d", "c"},
+			vals: []string{"1", "2", "4", "3"},
+		}
+
+		So(m.ToMap(), ShouldResemble, map[string]string{
+			"a": "1",
+			"b": "2",
+			"c": "3",
+			"d": "4",
+		})
+	})
+}
+
 func Test_MyMap_Put(t *testing.T) {
 	Convey("Given an empty MyMap", t, func(c C) {
 		m := &MyMap{}
