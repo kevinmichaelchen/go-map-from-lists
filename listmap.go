@@ -5,6 +5,14 @@ import (
 	"sort"
 )
 
+func FromMap(m map[string]string) *MyMap {
+	out := &MyMap{}
+	for k, v := range m {
+		out.Put(k, v)
+	}
+	return out
+}
+
 type MyMap struct {
 	keys, vals []string
 }

@@ -6,6 +6,30 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 )
 
+func Test_FromMap(t *testing.T) {
+	Convey("Given a map", t, func(c C) {
+
+		in := map[string]string{
+			"a": "1",
+			"b": "2",
+			"c": "3",
+			"d": "4",
+		}
+
+		m := FromMap(in)
+
+		So(m.Contains("a"), ShouldBeTrue)
+		So(m.Contains("b"), ShouldBeTrue)
+		So(m.Contains("c"), ShouldBeTrue)
+		So(m.Contains("d"), ShouldBeTrue)
+
+		So(m.keys, ShouldResemble, []string{"a", "b", "c", "d"})
+		So(m.vals, ShouldResemble, []string{"1", "2", "3", "4"})
+
+		So(m.ToMap(), ShouldResemble, in)
+	})
+}
+
 func Test_MyMap_Contains(t *testing.T) {
 	Convey("Given a MyMap", t, func(c C) {
 
