@@ -1,6 +1,4 @@
-module github.com/kevinmichaelchen/listmap
-
-go 1.12
+module github.com/kevinmichaelchen/go-map-from-lists
 
 require (
 	github.com/sirupsen/logrus v1.4.1
